@@ -1,0 +1,389 @@
+/* sidebar.css */
+:root {
+    --primary-gradient: linear-gradient(45deg, #1a1a1a, #2d3436);
+    --hover-gradient: linear-gradient(45deg, #2d3436, #3d4456);
+    --active-gradient: linear-gradient(45deg, #3b82f6, #2563eb);
+}
+
+.sidebar-container {
+    display: flex;
+    min-height: 100vh;
+    background-color: #f3f4f6;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.sidebar {
+    width: 280px;
+    background: var(--primary-gradient);
+    box-shadow: 4px 0 15px rgba(0,0,0,0.3);
+    position: fixed;
+    height: 100vh;
+    color: white;
+    overflow-y: auto;
+    transition: all 0.3s ease;
+}
+
+.sidebar-header {
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+
+.sidebar-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    letter-spacing: 1px;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.menu-container {
+    padding: 1.5rem 1rem;
+}
+
+.menu-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-item {
+    margin-bottom: 0.5rem;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.menu-item a {
+    color: #e2e8f0;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    padding: 0.875rem 1.25rem;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+    position: relative;
+    z-index: 1;
+}
+
+.menu-item a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--hover-gradient);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+}
+
+.menu-item:hover a::before {
+    opacity: 1;
+}
+
+.menu-item.active {
+    background: var(--active-gradient);
+    transform: translateX(10px);
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+}
+
+.menu-item.active a {
+    color: white;
+    font-weight: 500;
+}
+
+.menu-item a:hover {
+    background-color: #2d3436;
+}
+
+.menu-item .dropdown-menu {
+    display: none;
+    list-style-type: none;
+    padding-left: 20px;
+    margin-top: 5px;
+    background: #2d3436;
+    border-radius: 5px;
+}
+
+.menu-item:hover .dropdown-menu {
+    display: block;
+}
+
+/* Main Content */
+.main-content {
+    margin-left: 280px;
+    padding: 2rem;
+    flex: 1;
+    transition: all 0.3s ease;
+}
+
+.content-box {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    padding: 1.5rem;
+}
+
+/* Tabel styling */
+.table-laporan {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 2rem;
+}
+
+.table-laporan th,
+.table-laporan td {
+    text-align: left;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.table-laporan th {
+    background-color: #f3f4f6;
+    font-weight: bold;
+}
+
+.table-laporan tr:hover {
+    background-color: #f1f5f9;
+}
+
+.barang-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.barang-table th, .barang-table td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.barang-table th {
+    background-color: #f3f4f6;
+}
+
+.barang-table tr:nth-child(even) {
+    background-color: #f9fafb;
+}
+
+.barang-table tr:hover {
+    background-color: #e0e7ff;
+}
+
+/* Button styling */
+.btn-tambah-barang {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #3b82f6;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn-tambah-barang:hover {
+    background-color: #2563eb;
+}
+
+/* Additional Styles for the Form */
+.form-tambah-barang {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.form-tambah-barang label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.form-tambah-barang input {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.form-tambah-barang input:focus {
+    border-color: #3b82f6;
+}
+
+.form-tambah-barang button {
+    padding: 12px;
+    font-size: 1.1rem;
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form-tambah-barang button:hover {
+    background-color: #2563eb;
+}
+/* Styling untuk form tambah transaksi */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f3f4f6;
+    margin: 0;
+    padding: 0;
+}
+
+h2.form-title {
+    text-align: center;
+    font-size: 1.8rem;
+    color: #333;
+    margin-top: 30px;
+}
+
+.form-container {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.form-tambah-transaksi {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.form-input {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.form-input:focus {
+    border-color: #3b82f6;
+}
+
+.btn-submit {
+    padding: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover {
+    background-color: #2563eb;
+}
+/* Styling dasar untuk body */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9fafb;
+    margin: 0;
+    padding: 0;
+}
+
+/* Kontainer utama */
+.container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Judul halaman */
+.title {
+    text-align: center;
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Subtitle */
+.subtitle {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* Tabel transaksi */
+.table-container {
+    overflow-x: auto;
+}
+
+.transaksi-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    margin-top: 20px;
+    background: #fefefe;
+}
+
+.transaksi-table th,
+.transaksi-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.transaksi-table th {
+    background-color: #f3f4f6;
+    color: #333;
+    font-weight: bold;
+}
+
+.transaksi-table tr:nth-child(even) {
+    background-color: #f9fafb;
+}
+
+.transaksi-table tr:hover {
+    background-color: #e5f3ff;
+}
+
+.transaksi-table td {
+    color: #555;
+}
+
+/* Pesan jika tidak ada data */
+.transaksi-table tr td[colspan="5"] {
+    text-align: center;
+    font-style: italic;
+    color: #888;
+}
